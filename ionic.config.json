@@ -1,0 +1,7 @@
+{
+  "name": "arcana-code-forges",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
