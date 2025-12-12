@@ -40,22 +40,22 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdkqygln';
 const tarotCards: TarotCardData[] = [
   {
     id: 'web-design',
-    backImg: '/images/TarotBack.png',
-    frontImg: '/images/websitedesignfront.png',
+    backImg: './images/TarotBack.png',
+    frontImg: './images/websitedesignfront.png',
     altBack: 'Tarot card back – Arcana Code Forges',
     altFront: 'Custom Responsive Website Design',
   },
   {
     id: 'full-cycle-dev',
-    backImg: '/images/TarotBack.png',
-    frontImg: '/images/softwaredevelopmentfront.png',
+    backImg: './images/TarotBack.png',
+    frontImg: './images/softwaredevelopmentfront.png',
     altBack: 'Tarot card back – Arcana Code Forges',
     altFront: 'Custom Full-Cycle Development',
   },
   {
     id: 'mentoring',
-    backImg: '/images/TarotBack.png',
-    frontImg: '/images/mentoringfront.png',
+    backImg: './images/TarotBack.png',
+    frontImg: './images/mentoringfront.png',
     altBack: 'Tarot card back – Arcana Code Forges',
     altFront: 'Mentoring for Beginners',
   },
@@ -65,20 +65,20 @@ const tarotCards: TarotCardData[] = [
             IMAGE CAROUSEL DATA
 =========================================== */
 const carouselImages: CarouselImage[] = [
-  { src: '/images/HTMLRune_edited.png', alt: 'HTML rune sigil – Arcana Code Forges' },
-  { src: '/images/CSSRune_edited.png', alt: 'CSS rune sigil – Arcana Code Forges' },
-  { src: '/images/JavaScriptRune_edited.png', alt: 'JavaScript rune sigil – Arcana Code Forges' },
-  { src: '/images/PHPRune_edited.png', alt: 'PHP rune sigil – Arcana Code Forges' },
-  { src: '/images/ReactRune_edited.png', alt: 'React rune sigil – Arcana Code Forges' },
-  { src: '/images/AngularRune_edited.png', alt: 'Angular rune sigil – Arcana Code Forges' },
-  { src: '/images/VueRune_edited.png', alt: 'Vue rune sigil – Arcana Code Forges' },
-  { src: '/images/PythonRune_edited.png', alt: 'Python rune sigil – Arcana Code Forges' },
-  { src: '/images/JavaRune_edited.png', alt: 'Java rune sigil – Arcana Code Forges' },
-  { src: '/images/CSharpRune_edited.png', alt: 'C# rune sigil – Arcana Code Forges' },
-  { src: '/images/dotnetmvcRune_edited.png', alt: '.NET MVC rune sigil – Arcana Code Forges' },
-  { src: '/images/KotlinRune_edited.png', alt: 'Kotlin rune sigil – Arcana Code Forges' },
-  { src: '/images/IonicRune_edited.png', alt: 'Ionic rune sigil – Arcana Code Forges' },
-  { src: '/images/MySQLRune_edited.png', alt: 'MySQL rune sigil – Arcana Code Forges' },
+  { src: './images/HTMLRune_edited.png', alt: 'HTML rune sigil – Arcana Code Forges' },
+  { src: './images/CSSRune_edited.png', alt: 'CSS rune sigil – Arcana Code Forges' },
+  { src: './images/JavaScriptRune_edited.png', alt: 'JavaScript rune sigil – Arcana Code Forges' },
+  { src: './images/PHPRune_edited.png', alt: 'PHP rune sigil – Arcana Code Forges' },
+  { src: './images/ReactRune_edited.png', alt: 'React rune sigil – Arcana Code Forges' },
+  { src: './images/AngularRune_edited.png', alt: 'Angular rune sigil – Arcana Code Forges' },
+  { src: './images/VueRune_edited.png', alt: 'Vue rune sigil – Arcana Code Forges' },
+  { src: './images/PythonRune_edited.png', alt: 'Python rune sigil – Arcana Code Forges' },
+  { src: './images/JavaRune_edited.png', alt: 'Java rune sigil – Arcana Code Forges' },
+  { src: './images/CSharpRune_edited.png', alt: 'C# rune sigil – Arcana Code Forges' },
+  { src: './images/dotnetmvcRune_edited.png', alt: '.NET MVC rune sigil – Arcana Code Forges' },
+  { src: './images/KotlinRune_edited.png', alt: 'Kotlin rune sigil – Arcana Code Forges' },
+  { src: './images/IonicRune_edited.png', alt: 'Ionic rune sigil – Arcana Code Forges' },
+  { src: './images/MySQLRune_edited.png', alt: 'MySQL rune sigil – Arcana Code Forges' },
 ];
 
 /* ===========================================
@@ -284,7 +284,7 @@ const Home: React.FC = () => {
         <nav className="arcana-nav">
           <div className="arcana-nav-inner">
             <button className="nav-logo" onClick={() => scrollToSection('home')} aria-label="Go to home">
-              <img src="/images/ArcanaLogo.png" alt="Arcana Code Forges logo" />
+              <img src="./images/ArcanaLogo.png" alt="Arcana Code Forges logo" />
             </button>
 
             {/* Desktop links */}
@@ -321,7 +321,7 @@ const Home: React.FC = () => {
         {/* ================= HERO VIDEO BACKGROUND ================= */}
         <div className="hero-video-wrapper">
           <video className="hero-video" autoPlay muted loop playsInline>
-            <source src="/videos/hero-loop.mp4" type="video/mp4" />
+            <source src="./videos/hero-loop.mp4" type="video/mp4" />
           </video>
           <div className="hero-overlay" />
         </div>
@@ -391,7 +391,7 @@ const Home: React.FC = () => {
 
               <div className="spellbook-video-wrapper">
                 <video className="spellbook-video" controls playsInline>
-                  <source src="/videos/project-one.mp4" type="video/mp4" />
+                  <source src="./videos/project-one.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -415,7 +415,7 @@ const Home: React.FC = () => {
 
               <div className="spellbook-video-wrapper">
                 <video className="spellbook-video" controls playsInline>
-                  <source src="/videos/project-two.mp4" type="video/mp4" />
+                  <source src="./videos/project-two.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
