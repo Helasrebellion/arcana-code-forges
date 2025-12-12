@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
 
 export default defineConfig({
-  // IMPORTANT: GitHub Pages project repo base path
-  base: '/arcana-code-forges/',
+  // // IMPORTANT: GitHub Pages project repo base path
+  // base: '/arcana-code-forges/',
 
   plugins: [react(), legacy()],
 
