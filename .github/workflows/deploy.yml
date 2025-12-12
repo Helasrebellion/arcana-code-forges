@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -30,8 +30,13 @@ jobs:
       - name: Install
         run: npm ci
 
+      # IMPORTANT:
+      # - For your custom domain, the correct base is "/"
+      # - If you ever want to deploy for the project URL instead, set VITE_BASE to "/arcana-code-forges/"
       - name: Build
         run: npm run build
+        env:
+          VITE_BASE: "/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
