@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
       {/* CENTER COLUMN — LOGO */}
       <div className="footer-column footer-center">
         <img
-          src="/images/ArcanaLogo.png"
+          src="./images/ArcanaLogo.png"
           alt="Arcana Code Forges Logo"
           className="footer-logo"
         />
@@ -76,10 +76,10 @@ const Footer: React.FC = () => {
             <span style={{ display: 'block' }}>Sylvia H Mullins</span>
           </p>
 
-          {/* <script
+          <script
             async
             src="https://wgu.badgr.com/assets/widgets.bundle.js"
-          ></script> */}
+          ></script>
         </blockquote>
       </div>
     </footer>
