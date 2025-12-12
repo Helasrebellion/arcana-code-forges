@@ -1,0 +1,82 @@
+.arcana-footer {
+  background: #050013;
+  color: #fff;
+  padding: 3rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  border-top: 2px solid #432a73;
+}
+
+/* Columns */
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Titles */
+.footer-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+/* SOCIAL BAR */
+.social-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-icon {
+  font-size: 1.75rem;
+  color: #b38cff;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  color: #d8b4ff;
+  transform: scale(1.1);
+}
+
+/* LOGO CENTER */
+.footer-center {
+  text-align: center;
+}
+
+.footer-logo {
+  max-width: 150px;
+  filter: drop-shadow(0 0 8px rgba(188, 138, 255, 0.6));
+}
+
+/* BADGE COLUMN */
+.footer-badge img {
+  border-radius: 8px;
+}
+
+.badgr-badge-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  color: white !important;
+}
+
+.badgr-badge-recipient {
+  font-size: 12px;
+  margin-top: 0.25rem;
+  color: white !important;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .arcana-footer {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .footer-column {
+    align-items: center;
+  }
+}
