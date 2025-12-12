@@ -2,12 +2,19 @@
   background: #050013;
   color: #fff;
   padding: 3rem 1.5rem;
+  border-top: 2px solid #432a73;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-top {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
-  border-top: 2px solid #432a73;
 }
 
 /* Columns */
@@ -47,7 +54,7 @@
 }
 
 .footer-logo {
-  max-width: 150px;
+  max-width: 250px;
   filter: drop-shadow(0 0 8px rgba(188, 138, 255, 0.6));
 }
 
@@ -69,9 +76,18 @@
   color: white !important;
 }
 
+/* Bottom disclaimer */
+.footer-bottom {
+  margin-top: 2rem;
+  text-align: center;
+  width: 100%;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-  .arcana-footer {
+  .footer-top {
     text-align: center;
     flex-direction: column;
   }
