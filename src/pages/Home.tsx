@@ -31,11 +31,10 @@ type CarouselImage = {
   alt: string;
 };
 
-
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdkqygln';
 
 /* ===========================================
-              TAROT CARD DATA 
+              TAROT CARD DATA
 =========================================== */
 const tarotCards: TarotCardData[] = [
   {
@@ -390,7 +389,14 @@ const Home: React.FC = () => {
               <h3 className="spellbook-project-title">Sylvia Mullins Development V1</h3>
 
               <div className="spellbook-video-wrapper">
-                <video className="spellbook-video" controls playsInline>
+                <video
+                  className="spellbook-video"
+                  controls
+                  playsInline
+                  muted
+                  preload="metadata"
+                  poster="./thumbnails/SMDV1Thumbnail.png"
+                >
                   <source src="./videos/project-one.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -413,7 +419,14 @@ const Home: React.FC = () => {
             <div className="spellbook-item">
               <h3 className="spellbook-project-title">Sylvia Mullins Development V2</h3>
               <div className="spellbook-video-wrapper">
-                <video className="spellbook-video" controls playsInline>
+                <video
+                  className="spellbook-video"
+                  controls
+                  playsInline
+                  muted
+                  preload="metadata"
+                  poster="./thumbnails/SMDV2Thumbnail.png"
+                >
                   <source src="./videos/project-two.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -432,12 +445,18 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-
             {/* PROJECT 3 */}
             <div className="spellbook-item">
               <h3 className="spellbook-project-title">Interactive SVG World Map</h3>
               <div className="spellbook-video-wrapper">
-                <video className="spellbook-video" controls playsInline>
+                <video
+                  className="spellbook-video"
+                  controls
+                  playsInline
+                  muted
+                  preload="metadata"
+                  poster="./thumbnails/worldmapthumbnail.png"
+                >
                   <source src="./videos/project-three.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
@@ -455,7 +474,6 @@ const Home: React.FC = () => {
                 </a>
               </div>
             </div>
-
           </div>
         </section>
 
