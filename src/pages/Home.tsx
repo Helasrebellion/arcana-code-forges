@@ -412,7 +412,6 @@ const Home: React.FC = () => {
             {/* PROJECT 2 */}
             <div className="spellbook-item">
               <h3 className="spellbook-project-title">Sylvia Mullins Development V2</h3>
-
               <div className="spellbook-video-wrapper">
                 <video className="spellbook-video" controls playsInline>
                   <source src="./videos/project-two.mp4" type="video/mp4" />
@@ -432,6 +431,31 @@ const Home: React.FC = () => {
                 </a>
               </div>
             </div>
+
+
+            {/* PROJECT 3 */}
+            <div className="spellbook-item">
+              <h3 className="spellbook-project-title">Interactive SVG World Map</h3>
+              <div className="spellbook-video-wrapper">
+                <video className="spellbook-video" controls playsInline>
+                  <source src="./videos/project-three.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div className="spellbook-github-btn-wrapper">
+                <a
+                  href="https://github.com/Helasrebellion/interactivemap"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IonButton className="spellbook-github-btn" shape="round">
+                    View Source on GitHub
+                  </IonButton>
+                </a>
+              </div>
+            </div>
+
           </div>
         </section>
 
