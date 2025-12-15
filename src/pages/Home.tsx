@@ -16,6 +16,7 @@ import {
 } from '@ionic/react';
 import { closeOutline } from 'ionicons/icons';
 import Footer from '../components/Footer';
+import OriginsCrystalBall from '../components/OriginsCrystalBall';
 import './Home.css';
 
 type TarotCardData = {
@@ -291,6 +292,7 @@ const Home: React.FC = () => {
               <button className="nav-link" onClick={() => scrollToSection('home')}>Home</button>
               <button className="nav-link" onClick={() => scrollToSection('services')}>Services</button>
               <button className="nav-link" onClick={() => scrollToSection('techstack')}>Tech Stack</button>
+              <button className="nav-link" onClick={() => scrollToSection('origins')}>Origins</button>
               <button className="nav-link" onClick={() => scrollToSection('portfolio')}>Portfolio</button>
             </div>
 
@@ -313,6 +315,7 @@ const Home: React.FC = () => {
             <button className="mobile-link" onClick={() => scrollToSection('home')}>Home</button>
             <button className="mobile-link" onClick={() => scrollToSection('services')}>Services</button>
             <button className="mobile-link" onClick={() => scrollToSection('techstack')}>Tech Stack</button>
+            <button className="mobile-link" onClick={() => scrollToSection('origins')}>Origins</button>
             <button className="mobile-link" onClick={() => scrollToSection('portfolio')}>Portfolio</button>
           </div>
         </nav>
@@ -368,6 +371,10 @@ const Home: React.FC = () => {
             <ImageCarousel />
           </div>
         </section>
+
+        {/* ================= ORIGINS OF THE FORGE ================= */}
+<OriginsCrystalBall sectionId="origins" />
+
 
         {/* ================= PORTFOLIO / SPELLBOOK ================= */}
         <section className="spellbook-section" id="portfolio">
