@@ -119,7 +119,7 @@ const TarotCard: React.FC<TarotCardProps> = ({ card }) => {
       </div>
 
       {/* Small interaction hint for sighted users */}
-      <p className="tarot-hint">Tap or hover to flip</p>
+      {/* <p className="tarot-hint">Tap or hover to flip</p> */}
 
       {/*
         Actions region:
@@ -129,7 +129,7 @@ const TarotCard: React.FC<TarotCardProps> = ({ card }) => {
           - Visual fallback is shown briefly when TTS isn't available
       */}
       <div className="tarot-actions">
-        <button
+        {/* <button
           type="button"
           className="tarot-read"
           onClick={readText}
@@ -137,7 +137,7 @@ const TarotCard: React.FC<TarotCardProps> = ({ card }) => {
           aria-controls={descId}
         >
           🔊 Read
-        </button>
+        </button> */}
 
         {/* Hidden element for screen readers */}
         <div id={descId} className="sr-only">
