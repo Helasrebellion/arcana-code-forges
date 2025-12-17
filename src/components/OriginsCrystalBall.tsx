@@ -14,7 +14,7 @@ type OriginEntry = {
 };
 
 type Props = {
-  sectionId?: string; 
+  sectionId?: string;
 };
 
 const REVEAL_THRESHOLD = 70;
@@ -33,7 +33,18 @@ const OriginsCrystalBall: React.FC<Props> = ({ sectionId = "origins" }) => {
           "Where the fundamentals were forged. Structured problem solving, building with intent, and learning how systems fit together.",
         logoSrc: "/images/gatewayyy.png",
         logoAlt: "Gateway Community College logo",
-        runes: ["Programming Foundations", "Systems Thinking", "Java", "HTML", "CSS", "Javascript", "PHP", "MYSQL", "Python", "Kotlin",],
+        runes: [
+          "Programming Foundations",
+          "Systems Thinking",
+          "Java",
+          "HTML",
+          "CSS",
+          "Javascript",
+          "PHP",
+          "MYSQL",
+          "Python",
+          "Kotlin",
+        ],
       },
       {
         id: "wgu",
@@ -45,15 +56,24 @@ const OriginsCrystalBall: React.FC<Props> = ({ sectionId = "origins" }) => {
           "An ongoing pursuit to sharpen theory and practice. Strengthening architecture instincts and expanding depth across modern software disciplines.",
         logoSrc: "/images/WGU.jpg",
         logoAlt: "Western Governors University logo",
-        runes: ["Architecture", "C#", "JavaScript", "MYSQL", "Angular", "Project Management", "Python", "AWS", "Mobile Development"],
+        runes: [
+          "Architecture",
+          "C#",
+          "JavaScript",
+          "MYSQL",
+          "Angular",
+          "Project Management",
+          "Python",
+          "AWS",
+          "Mobile Development",
+        ],
       },
       {
         id: "codeyou",
         org: "Code:You",
         title: "Trial by Fire",
         timeframe: "Web Development Course",
-        status:
-          "Graduated — Mentoring entry-level students coming soon",
+        status: "Graduated — Mentoring entry-level students coming soon",
         description:
           "A fast-paced proving ground shipping real web projects, building confidence with modern tooling, and leveling up through iteration.",
         logoSrc: "/images/code_you_logo.jpg",
@@ -71,7 +91,22 @@ const OriginsCrystalBall: React.FC<Props> = ({ sectionId = "origins" }) => {
           "Where craft meets reality. Collaboration, delivery, and adapting across stacks. The specifics are sealed, but the lessons endure.",
         logoSrc: "/images/redhawk-icon.png",
         logoAlt: "Redhawk Technologies logo",
-        runes: ["Client Delivery", "Full-Stack Adaptability", "Team Collaboration", "Ionic Angular", "Ionic React", "SQL", "Supabase", "Wordpress", "Wix", "Figma", "NoSQL", "Laravel", "Typescript", "Mailchimp", ],
+        runes: [
+          "Client Delivery",
+          "Full-Stack Adaptability",
+          "Team Collaboration",
+          "Ionic Angular",
+          "Ionic React",
+          "SQL",
+          "Supabase",
+          "Wordpress",
+          "Wix",
+          "Figma",
+          "NoSQL",
+          "Laravel",
+          "Typescript",
+          "Mailchimp",
+        ],
       },
     ],
     []
@@ -80,7 +115,7 @@ const OriginsCrystalBall: React.FC<Props> = ({ sectionId = "origins" }) => {
   const [index, setIndex] = useState(0);
   const [isScrying, setIsScrying] = useState(false);
   const [revealed, setRevealed] = useState(false);
-  const [charge, setCharge] = useState(0); 
+  const [charge, setCharge] = useState(0);
   const [lastPoint, setLastPoint] = useState<{ x: number; y: number } | null>(
     null
   );
@@ -143,7 +178,7 @@ const OriginsCrystalBall: React.FC<Props> = ({ sectionId = "origins" }) => {
     setLastPoint(null);
   };
 
-  // Tap/click: instantly reveal 
+  // Tap/click: instantly reveal
   const onClickOrb = () => {
     setRevealed(true);
     setCharge(100);
@@ -164,7 +199,8 @@ const OriginsCrystalBall: React.FC<Props> = ({ sectionId = "origins" }) => {
       <div className="origins-header">
         <h2 className="origins-title">Origins of the Forge</h2>
         <p className="origins-subtitle">
-          Place your hand upon the crystal—stir the mist, and let a vision take form.
+          Place your hand upon the crystal—stir the mist, and let a vision take
+          form.
         </p>
       </div>
 
@@ -191,7 +227,11 @@ const OriginsCrystalBall: React.FC<Props> = ({ sectionId = "origins" }) => {
             {/* Visions */}
             <div className="orb-visions">
               <div className="orb-logo-wrap" aria-hidden="true">
-                <img className="orb-logo" src={current.logoSrc} alt={current.logoAlt} />
+                <img
+                  className="orb-logo"
+                  src={current.logoSrc}
+                  alt={current.logoAlt}
+                />
               </div>
 
               <div className="orb-vision-title">{current.title}</div>
@@ -217,7 +257,11 @@ const OriginsCrystalBall: React.FC<Props> = ({ sectionId = "origins" }) => {
           </div>
 
           <div className="orb-controls">
-            <button className="orb-btn" onClick={prev} aria-label="Previous origin">
+            <button
+              className="orb-btn"
+              onClick={prev}
+              aria-label="Previous origin"
+            >
               ‹
             </button>
 
@@ -235,7 +279,9 @@ const OriginsCrystalBall: React.FC<Props> = ({ sectionId = "origins" }) => {
         </div>
 
         {/* ===== RIGHT: DETAILS ===== */}
-        <div className={["origin-details", revealed ? "is-visible" : ""].join(" ")}>
+        <div
+          className={["origin-details", revealed ? "is-visible" : ""].join(" ")}
+        >
           <h3 className="origin-title">{current.org}</h3>
 
           <p className="origin-status">{current.status}</p>

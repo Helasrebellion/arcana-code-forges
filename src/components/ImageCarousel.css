@@ -1,0 +1,104 @@
+/* Carousel styles moved from Home.css */
+.services-carousel-wrapper {
+  margin-top: 3rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.carousel-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.carousel {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.carousel-window {
+  overflow: hidden;
+  border-radius: 16px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slide img {
+  display: block;
+  max-width: 100%;
+  max-height: 420px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(10, 10, 26, 0.7);
+  color: #ffffff;
+  font-size: 1.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-arrow-left {
+  left: 0.75rem;
+}
+
+.carousel-arrow-right {
+  right: 0.75rem;
+}
+
+.carousel-arrow:focus {
+  outline: 2px solid #a855f7;
+}
+
+.carousel-dots {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.carousel-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+.carousel-dot.is-active {
+  background: #f97316;
+  width: 0.85rem;
+}
+
+@media (max-width: 480px) {
+  .carousel-slide img {
+    max-height: 320px;
+  }
+}

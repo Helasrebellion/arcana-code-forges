@@ -1,7 +1,12 @@
-import React from 'react';
-import { IonIcon } from '@ionic/react';
-import { callOutline, logoGithub, logoLinkedin, mailOutline } from 'ionicons/icons';
-import './Footer.css';
+import React from "react";
+import { IonIcon } from "@ionic/react";
+import {
+  callOutline,
+  logoGithub,
+  logoLinkedin,
+  mailOutline,
+} from "ionicons/icons";
+import "./Footer.css";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -33,7 +38,10 @@ const Footer: React.FC = () => {
               <IonIcon icon={logoLinkedin} />
             </a>
 
-            <a href="mailto:sylviamullins@arcanacodeforges.com" className="social-icon">
+            <a
+              href="mailto:sylviamullins@arcanacodeforges.com"
+              className="social-icon"
+            >
               <IonIcon icon={mailOutline} />
             </a>
 
@@ -58,7 +66,7 @@ const Footer: React.FC = () => {
             className="badgr-badge"
             style={{
               fontFamily: 'Helvetica, Roboto, "Segoe UI", Calibri, sans-serif',
-              color: 'white'
+              color: "white",
             }}
           >
             <a href="https://api.badgr.io/public/assertions/ZBip3n96R0S5IPKn_LoTXQ">
@@ -70,14 +78,19 @@ const Footer: React.FC = () => {
               />
             </a>
 
-            <p className="badgr-badge-name">WGU Certificate: Front-End Developer</p>
+            <p className="badgr-badge-name">
+              WGU Certificate: Front-End Developer
+            </p>
 
             <p className="badgr-badge-recipient">
               <strong>Awarded To:</strong>
-              <span style={{ display: 'block' }}>Sylvia H Mullins</span>
+              <span style={{ display: "block" }}>Sylvia H Mullins</span>
             </p>
 
-            <script async src="https://wgu.badgr.com/assets/widgets.bundle.js"></script>
+            <script
+              async
+              src="https://wgu.badgr.com/assets/widgets.bundle.js"
+            ></script>
           </blockquote>
         </div>
       </div>

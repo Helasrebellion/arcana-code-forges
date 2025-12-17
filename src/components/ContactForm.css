@@ -1,0 +1,53 @@
+.contact-modal {
+  --height: auto;
+}
+
+.contact-toolbar {
+  --background: #050013;
+  --color: #ffffff;
+  border-bottom: 2px solid #432a73;
+}
+
+.contact-body {
+  padding: 1rem 1rem 1.25rem;
+  background: radial-gradient(
+    circle at top,
+    #0b041d 0,
+    #050013 60%,
+    #020009 100%
+  );
+  color: #ffffff;
+}
+
+.contact-note {
+  margin: 0 0 1rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.contact-item {
+  --background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(179, 140, 255, 0.18);
+  border-radius: 14px;
+  margin-bottom: 0.75rem;
+}
+
+.contact-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contact-mailto {
+  text-decoration: none;
+}
+
+.contact-send {
+  --background: #6366f1;
+  --background-activated: #4f46e5;
+  --border-radius: 999px;
+  --padding-start: 1.5rem;
+  --padding-end: 1.5rem;
+}

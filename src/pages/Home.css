@@ -1,112 +1,4 @@
-/* === HERO SECTION & VIDEO BACKGROUND === */
-
-.hero-content {
-  --background: transparent;
-  padding: 0;
-}
-
-/* Video background fills viewport and stays behind content */
-.hero-video-wrapper {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.hero-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Dark gradient overlay for readability */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0.9)
-  );
-}
-
-/* Foreground hero content: mobile-first, centered */
-.hero-inner {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; /* center horizontally */
-  text-align: center; /* center text */
-  padding: calc(var(--ion-safe-area-top, 0) + 5rem) 1.5rem
-    calc(var(--ion-safe-area-bottom, 0) + 2rem); /* extra top for nav */
-  color: #ffffff;
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-/* Hero typography */
-.hero-title {
-  font-size: 2rem;
-  line-height: 1.25;
-  font-weight: 700;
-  margin: 0 0 0.75rem 0;
-}
-
-.hero-title-accent {
-  font-weight: 800;
-}
-
-.hero-subtitle {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 0;
-  opacity: 0.9;
-  max-width: 42rem;
-}
-
-/* Call-to-action button */
-.hero-cta {
-  margin-top: 1.75rem;
-  --background: #6366f1;
-  --background-activated: #4f46e5;
-  --border-radius: 999px;
-  --padding-start: 1.75rem;
-  --padding-end: 1.75rem;
-  --box-shadow: 0 10px 25px rgba(15, 23, 42, 0.6);
-}
-
-/* Tablet and up: scale hero text a bit */
-@media (min-width: 768px) {
-  .hero-inner {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-
-  .hero-title {
-    font-size: 2.75rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-}
-
-/* Desktop and larger: even bigger hero text */
-@media (min-width: 1024px) {
-  .hero-inner {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-
-  .hero-title {
-    font-size: 3.25rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.05rem;
-  }
-}
+/* Hero styles moved to src/components/Hero.css */
 
 /* === NAV BAR (MOBILE FRIENDLY) === */
 
@@ -277,8 +169,7 @@
 #home,
 #services,
 #techstack,
-#origins
-#portfolio {
+#origins #portfolio {
   scroll-margin-top: 100px;
 }
 
@@ -286,9 +177,14 @@
 
 .services-section {
   position: relative;
-  z-index: 1; 
+  z-index: 1;
   padding: 3rem 1.5rem 3rem;
-  background: radial-gradient(circle at top, #19003a 0, #050013 55%, #020009 100%);
+  background: radial-gradient(
+    circle at top,
+    #19003a 0,
+    #050013 55%,
+    #020009 100%
+  );
   color: #ffffff;
 }
 
@@ -309,82 +205,6 @@
   opacity: 0.9;
 }
 
-/* Tarot grid: mobile-first (stacked) */
-.tarot-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-/* Tarot container with perspective for 3D flip */
-.tarot-container {
-  perspective: 1500px;
-  max-width: 320px;
-  width: 100%;
-}
-
-/* The card element */
-.tarot-card {
-  width: 100%;
-  aspect-ratio: 400 / 691;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.8s ease-in-out;
-  cursor: pointer;
-}
-
-.tarot-container:hover .tarot-card {
-  transform: rotateY(180deg);
-}
-
-.tarot-card.is-flipped {
-  transform: rotateY(180deg);
-}
-
-.card-face {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.card-back {
-  transform: rotateY(0deg);
-}
-
-.card-front {
-  transform: rotateY(180deg);
-}
-
-.tarot-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 18px;
-  display: block;
-}
-
-.tarot-hint {
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-  text-align: center;
-  opacity: 0.7;
-}
-
-/* Tablet & up: cards in a row */
-@media (min-width: 768px) {
-  .tarot-grid {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .tarot-container {
-    max-width: 280px;
-  }
-}
-
 /* === IMAGE CAROUSEL UNDER TAROT CARDS === */
 
 .services-carousel-wrapper {
@@ -397,81 +217,6 @@
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-}
-
-/* Carousel container */
-.carousel {
-  position: relative;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.carousel-window {
-  overflow: hidden;
-  border-radius: 16px;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.6s ease;
-}
-
-.carousel-slide {
-  min-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-slide img {
-  display: block;
-  max-width: 100%;
-  max-height: 420px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Arrows */
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: rgba(10, 10, 26, 0.7);
-  color: #ffffff;
-  font-size: 1.75rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 999px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-arrow-left {
-  left: 0.75rem;
-}
-
-.carousel-arrow-right {
-  right: 0.75rem;
-}
-
-.carousel-arrow:focus {
-  outline: 2px solid #a855f7;
-}
-
-/* Dots */
-.carousel-dots {
-  margin-top: 0.75rem;
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
 }
 
 .carousel-dot {
@@ -496,57 +241,6 @@
 }
 
 /* === SPELLBOOK OF CREATIONS SECTION === */
-
-.spellbook-section {
-  margin-top: 0;
-  padding: 3rem 1.5rem 4rem;
-  background: radial-gradient(circle at top, #0b041d 0, #050013 60%, #020009 100%);
-  color: #ffffff;
-  border-top: 1px solid rgba(148, 163, 184, 0.3);
-}
-
-.spellbook-header {
-  max-width: 900px;
-  margin: 0 auto 2.5rem;
-  text-align: center;
-}
-
-.spellbook-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.spellbook-disclaimer {
-  font-size: 0.95rem;
-  line-height: 1.8;
-  opacity: 0.9;
-}
-
-/* Video layout: mobile-first — stack vertically */
-.spellbook-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.spellbook-item {
-  background: radial-gradient(circle at top, rgba(148, 163, 255, 0.05), rgba(15, 23, 42, 0.9));
-  border-radius: 18px;
-  padding: 1.5rem;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(148, 163, 255, 0.18);
-}
-
-.spellbook-project-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
 .spellbook-video-wrapper {
   border-radius: 14px;
   overflow: hidden;
@@ -621,7 +315,12 @@
 
 .contact-body {
   padding: 1rem 1rem 1.25rem;
-  background: radial-gradient(circle at top, #0b041d 0, #050013 60%, #020009 100%);
+  background: radial-gradient(
+    circle at top,
+    #0b041d 0,
+    #050013 60%,
+    #020009 100%
+  );
   color: #ffffff;
 }
 
