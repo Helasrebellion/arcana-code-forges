@@ -1,3 +1,35 @@
+/* ==========================================================
+   Footer.css — organized & documented
+   ==========================================================
+   Purpose:
+     - Styles for the site footer: social links, center logo, a badge
+       widget/blockquote, and the copyright line. Keep layout responsive
+       and accessible, and avoid layout shifts by sizing images.
+
+   Accessibility & security notes (summary):
+     - Social links are anchors with focus styles and `aria-label`s applied
+       in the component (recommended). For icons only, ensure `aria-label`
+       or visible text exists so screen readers understand the link target.
+     - External links open in new tabs use `rel="noopener noreferrer"`
+       (set in the component) to guard against tab-napping.
+     - Third-party badge scripts should be audited. Consider lazy-loading
+       the script or deferring it behind an intersection observer for
+       performance/privacy improvements.
+
+   File organization:
+     - Footer container & top row
+     - Columns & titles
+     - Social bar styling
+     - Logo centering
+     - Badge column
+     - Bottom copyright / disclaimer
+     - Responsive adjustments
+   ==========================================================
+*/
+
+/* -----------------------------
+   Section: Footer container & top row
+   ----------------------------- */
 .arcana-footer {
   background: #050013;
   color: #fff;
@@ -17,20 +49,27 @@
   flex-wrap: wrap;
 }
 
-/* Columns */
+/* -----------------------------
+   Section: Columns & titles
+   ----------------------------- */
+/* Columns are flexible; min-width prevents very narrow panels */
 .footer-column {
   flex: 1;
   min-width: 250px;
 }
 
-/* Titles */
 .footer-title {
   font-size: 1.2rem;
   margin-bottom: 0.75rem;
   font-weight: 600;
 }
 
-/* SOCIAL BAR */
+/* -----------------------------
+   Section: Social bar
+   ----------------------------- */
+/* Social icons are anchors in the component and should include
+   accessible labels (e.g., `aria-label="GitHub — opens in new tab"`).
+   Hover/focus states provide visual affordance. */
 .social-bar {
   display: flex;
   gap: 1rem;
@@ -48,17 +87,27 @@
   transform: scale(1.1);
 }
 
-/* LOGO CENTER */
+/* -----------------------------
+   Section: Logo center
+   ----------------------------- */
 .footer-center {
   text-align: center;
 }
 
+/* Fixing max-width and using drop-shadow to keep a consistent visual
+   scale. Using explicit dimensions on images is preferred to avoid CLS. */
 .footer-logo {
   max-width: 250px;
   filter: drop-shadow(0 0 8px rgba(188, 138, 255, 0.6));
 }
 
-/* BADGE COLUMN */
+/* -----------------------------
+   Section: Badge column
+   ----------------------------- */
+/* The badge block contains an image and a third-party script. The image
+   has rounded corners and the provider's text styles are slightly
+   overridden to ensure contrast in the dark footer. Consider lazy-loading
+   the script or replacing the script with a static image for perf/privacy. */
 .footer-badge img {
   border-radius: 8px;
 }
@@ -76,7 +125,9 @@
   color: white !important;
 }
 
-/* Bottom disclaimer */
+/* -----------------------------
+   Section: Bottom disclaimer / copyright
+   ----------------------------- */
 .footer-bottom {
   margin-top: 2rem;
   text-align: center;
@@ -85,7 +136,9 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* MOBILE RESPONSIVE */
+/* -----------------------------
+   Section: Responsive adjustments
+   ----------------------------- */
 @media (max-width: 768px) {
   .footer-top {
     text-align: center;

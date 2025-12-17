@@ -1,3 +1,29 @@
+/* ==========================================================
+   Home.css — annotated & organized
+   ==========================================================
+   Purpose:
+     - Page-level styling for the Home route. This file contains layout
+       and section styles that compose the page around component-level
+       styles (e.g., `Hero.css`, `OriginsCrystalBall.css`). Keep page
+       styles lightweight and delegate component-specific design to
+       each component's dedicated CSS file.
+
+   Conventions & notes:
+     - Use clear section headings and short comments to clarify intent.
+     - Prefer component-local CSS for complex visual patterns; this file
+       should primarily handle layout and light scaffolding.
+     - Where possible, favor semantic HTML and leverage component props
+       for responsive or behavioral differences.
+   ==========================================================
+*/
+
+/* -----------------------------
+   Section: Navigation scaffolding
+   ----------------------------- */
+/* Nav visuals are defined here for global consistency but behavior (menu
+   toggling) is implemented in `Nav.tsx`. Keep scroll-margin helpers near
+   the top for easy maintenance. */
+
 /* Hero styles moved to src/components/Hero.css */
 
 /* === NAV BAR (MOBILE FRIENDLY) === */

@@ -1,8 +1,43 @@
+/* ==========================================================
+   Hero.css — documented & annotated
+   ==========================================================
+   Purpose:
+     - Styles for the full-screen Hero section: decorative background
+       video, overlay for contrast, and the content layer that contains
+       the headline, subtitle, and CTA (ContactForm).
+
+   Accessibility & UX guidance (summary):
+     - If the background video is decorative, consider marking it with
+       `aria-hidden="true"` (in the component) so screen readers skip it.
+     - Respect `prefers-reduced-motion`: users who request reduced motion
+       should not be forced to view autoplaying video. Prefer a static
+       poster/fallback when `prefers-reduced-motion` is set to reduce.
+     - Use `playsInline` + `muted` to maximize autoplay compatibility on
+       modern browsers; still expect some clients to block autoplay.
+
+   File organization:
+     - Container vars & helpers
+     - Video wrapper & video element
+     - Video overlay (contrast)
+     - Content layer (inner, title, subtitle, CTA)
+     - Responsive scaling
+   ==========================================================
+*/
+
+/* -----------------------------
+   Section: container helpers
+   ----------------------------- */
 .hero-content {
   --background: transparent;
   padding: 0;
 }
 
+/* -----------------------------
+   Section: Video wrapper
+   ----------------------------- */
+/* Positioned behind the content using negative z-index so the overlay
+   and textual content remain the primary focus. Keep `overflow: hidden`
+   to prevent stray video edges from showing on narrow screens. */
 .hero-video-wrapper {
   position: fixed;
   inset: 0;
@@ -10,12 +45,38 @@
   overflow: hidden;
 }
 
+/* -----------------------------
+   Section: Video element
+   ----------------------------- */
+/* The video uses `object-fit: cover` so it fills the hero area while
+   preserving aspect ratio. Note: playback control (autoplay/muted/loop)
+   is handled in the component; CSS only manages presentation. */
 .hero-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Example: Respect reduced-motion preferences by showing a fallback
+   instead of an auto-playing video. This block is a commented suggestion
+   — uncomment and adapt if you want the CSS-only solution.
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+  .hero-video-wrapper {
+    background-image: url('./images/hero-poster.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+}
+*/
+
+/* -----------------------------
+   Section: Overlay (contrast)
+   ----------------------------- */
+/* Separate overlay layer to control darkness and gradients without
+   modifying the source video. Overlay ensures text remains legible
+   regardless of video content. */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -26,6 +87,11 @@
   );
 }
 
+/* -----------------------------
+   Section: Content layer
+   ----------------------------- */
+/* The content layer is centered and takes up at least the viewport
+   height. Padding accounts for device safe areas where available. */
 .hero-inner {
   min-height: 100vh;
   display: flex;
@@ -40,6 +106,9 @@
   margin: 0 auto;
 }
 
+/* -----------------------------
+   Section: Title styles
+   ----------------------------- */
 .hero-title {
   font-size: 2rem;
   line-height: 1.25;
@@ -51,6 +120,9 @@
   font-weight: 800;
 }
 
+/* -----------------------------
+   Section: Subtitle
+   ----------------------------- */
 .hero-subtitle {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -59,6 +131,11 @@
   max-width: 42rem;
 }
 
+/* -----------------------------
+   Section: CTA token (styles using CSS vars)
+   ----------------------------- */
+/* The ContactForm component uses these variables for consistent look
+   and feel; keep interaction colors distinct from surrounding text. */
 .hero-cta {
   margin-top: 1.75rem;
   --background: #6366f1;
@@ -69,6 +146,9 @@
   --box-shadow: 0 10px 25px rgba(15, 23, 42, 0.6);
 }
 
+/* -----------------------------
+   Section: Responsive adjustments
+   ----------------------------- */
 @media (min-width: 768px) {
   .hero-inner {
     padding-left: 3rem;

@@ -1,4 +1,27 @@
-/* Carousel styles moved from Home.css */
+/* ==========================================================
+   ImageCarousel.css — organized & heavily annotated
+   ==========================================================
+   Purpose:
+     - Styles for the lightweight rune image carousel used in the
+       "Runes of the Craft" / tech stack section.
+     - The carousel advances automatically (handled in JS) and exposes
+       previous/next controls and pagination dots for direct navigation.
+
+   Accessibility & UX notes:
+     - Images MUST have meaningful `alt` text (managed in the React
+       component). Keep alt text concise and descriptive.
+     - Buttons are keyboard focusable and use `:focus` / `:focus-visible`
+       to provide clear outlines.
+     - For advanced accessibility consider: pausing auto-advance on focus,
+       adding `aria-live` announcements for slide changes, and supporting
+       `prefers-reduced-motion` to reduce or disable animation.
+   ==========================================================
+*/
+
+/* -----------------------------
+   Section: wrapper & title
+   ----------------------------- */
+/* Kept from the original Home layout — centers the carousel content. */
 .services-carousel-wrapper {
   margin-top: 3rem;
   margin-bottom: 0;
@@ -11,12 +34,16 @@
   margin-bottom: 0.75rem;
 }
 
+/* -----------------------------
+   Section: carousel container
+   ----------------------------- */
 .carousel {
   position: relative;
   max-width: 960px;
   margin: 0 auto;
 }
 
+/* Viewport for the track — clips overflow and provides a rounded frame */
 .carousel-window {
   overflow: hidden;
   border-radius: 16px;
@@ -26,11 +53,18 @@
   justify-content: center;
 }
 
+/* -----------------------------
+   Section: track & slides
+   ----------------------------- */
+/* The track is translated horizontally based on the active index.
+   Transition timing should feel smooth but responsive; adjust duration
+   if the content feels either too snappy or sluggish. */
 .carousel-track {
   display: flex;
   transition: transform 0.6s ease;
 }
 
+/* Each slide occupies the full viewport width of the carousel */
 .carousel-slide {
   min-width: 100%;
   display: flex;
@@ -38,6 +72,12 @@
   justify-content: center;
 }
 
+/* -----------------------------
+   Section: images
+   ----------------------------- */
+/* Images are constrained to the available carousel area while keeping
+   their aspect ratio. `object-fit: contain` ensures logos/runes aren't
+   cropped. */
 .carousel-slide img {
   display: block;
   max-width: 100%;
@@ -47,6 +87,11 @@
   object-fit: contain;
 }
 
+/* -----------------------------
+   Section: arrows (controls)
+   ----------------------------- */
+/* Positioned vertically centered and slightly inset from edges. Use
+   visible focus outlines for keyboard users. */
 .carousel-arrow {
   position: absolute;
   top: 50%;
@@ -72,10 +117,15 @@
   right: 0.75rem;
 }
 
+/* Focus state — prefer `:focus-visible` if you want to restrict outlines
+   to keyboard users only, but the original used `:focus`. */
 .carousel-arrow:focus {
   outline: 2px solid #a855f7;
 }
 
+/* -----------------------------
+   Section: pagination dots
+   ----------------------------- */
 .carousel-dots {
   margin-top: 0.75rem;
   display: flex;
@@ -83,6 +133,8 @@
   gap: 0.5rem;
 }
 
+/* Dots are simple square elements rounded to circles; the active dot
+   expands slightly to indicate state. */
 .carousel-dot {
   width: 0.5rem;
   height: 0.5rem;
@@ -97,8 +149,13 @@
   width: 0.85rem;
 }
 
+/* -----------------------------
+   Section: responsive tweaks
+   ----------------------------- */
 @media (max-width: 480px) {
+  /* Keep runes legible on small screens by limiting their max-height */
   .carousel-slide img {
     max-height: 320px;
   }
 }
+

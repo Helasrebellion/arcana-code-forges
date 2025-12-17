@@ -1,4 +1,21 @@
-/* ===== ORIGINS: section matches your other blocks ===== */
+/* ==========================================================
+   OriginsCrystalBall.css — organized & documented
+   ==========================================================
+   Purpose:
+     - Styles for the "Origins of the Forge" interactive section and the
+       crystal orb UI. This file is sectioned for readability and maintainability.
+
+   Notes:
+     - Visual state modifiers are applied from the component via classes:
+       `.is-scrying` (active interaction) and `.is-revealed` (content revealed).
+     - Animations are subtle and touch-friendly to make the experience pleasing
+       on both desktop and mobile.
+   ==========================================================
+*/
+
+/* -----------------------------
+   SECTION: Section & Header
+   ----------------------------- */
 .origins-section {
   padding: 3rem 1.5rem 4rem;
   background: radial-gradient(
@@ -30,7 +47,9 @@
   margin: 0;
 }
 
-/* ===== Layout ===== */
+/* -----------------------------
+   SECTION: Layout
+   ----------------------------- */
 .origins-layout {
   max-width: 1100px;
   margin: 0 auto;
@@ -46,7 +65,9 @@
   }
 }
 
-/* ===== Orb panel: center it and give presence ===== */
+/* -----------------------------
+   SECTION: Orb panel
+   ----------------------------- */
 .orb-panel {
   width: 100%;
   display: grid;
@@ -54,7 +75,9 @@
   gap: 1rem;
 }
 
-/* ===== Crystal orb ===== */
+/* -----------------------------
+   SECTION: Crystal orb base
+   ----------------------------- */
 .crystal-orb {
   width: 480px;
   max-width: 92vw;
@@ -73,6 +96,7 @@
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6) inset,
     0 30px 90px rgba(0, 0, 0, 0.55);
 
+  /* Interaction & accessibility helpers */
   user-select: none;
   touch-action: none;
   outline: none;
@@ -87,7 +111,9 @@
     0 0 0 1px rgba(0, 0, 0, 0.6) inset, 0 30px 90px rgba(0, 0, 0, 0.55);
 }
 
-/* “Glass highlight” */
+/* -----------------------------
+   SECTION: Glass highlight & stand
+   ----------------------------- */
 .crystal-orb::before {
   content: "";
   position: absolute;
@@ -102,7 +128,6 @@
   pointer-events: none;
 }
 
-/* Stand under the orb */
 .crystal-orb::after {
   content: "";
   position: absolute;
@@ -122,7 +147,9 @@
   z-index: 0;
 }
 
-/* Visions layer */
+/* -----------------------------
+   SECTION: Visions & Logo
+   ----------------------------- */
 .orb-visions {
   position: absolute;
   inset: 0;
@@ -133,7 +160,6 @@
   z-index: 2;
 }
 
-/* Logo inside orb */
 .orb-logo-wrap {
   width: 160px;
   height: 160px;
@@ -190,7 +216,9 @@
   opacity: 0.85;
 }
 
-/* Fog */
+/* -----------------------------
+   SECTION: Fog & Swirl Animations
+   ----------------------------- */
 .orb-fog {
   position: absolute;
   inset: -25%;
@@ -215,7 +243,6 @@
   opacity: 0.12;
 }
 
-/* Swirl */
 .orb-swirl {
   position: absolute;
   inset: -40%;
@@ -243,7 +270,9 @@
   }
 }
 
-/* Charge ring */
+/* -----------------------------
+   SECTION: Charge ring & Hint
+   ----------------------------- */
 .orb-ring {
   position: absolute;
   inset: 10px;
@@ -266,7 +295,6 @@
   transition: transform 120ms linear;
 }
 
-/* Hint */
 .orb-hint {
   position: absolute;
   bottom: 22px;
@@ -280,7 +308,9 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-/* Controls */
+/* -----------------------------
+   SECTION: Controls (buttons & progress)
+   ----------------------------- */
 .orb-controls {
   width: 480px;
   max-width: 92vw;
@@ -317,7 +347,9 @@
   font-size: 1rem;
 }
 
-/* ===== Details panel ===== */
+/* -----------------------------
+   SECTION: Details panel
+   ----------------------------- */
 .origin-details {
   background: radial-gradient(
     circle at top,

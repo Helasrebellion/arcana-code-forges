@@ -1,35 +1,74 @@
-/* Tarot card component styles moved here from Home.css */
+/* ==========================================================
+   TarotCard.css — organized & documented
+   ==========================================================
+   Purpose:
+     - Styles for the Tarot flip-card grid and individual cards.
+     - This file is sectioned with clear headings to make styles easy to
+       find and reason about (layout, card core, faces, controls, helpers,
+       and responsive adjustments).
 
+   Notes:
+     - The flip is achieved with a 3D transform (rotateY) and preserved
+       3D children using `transform-style: preserve-3d`.
+     - `perspective` is applied on the container to give a natural 3D depth.
+     - Keep the transform transition duration and easing consistent to
+       preserve a smooth flip animation.
+   ==========================================================
+*/
+
+/* -----------------------------
+   SECTION: Layout & Grid
+   ----------------------------- */
+
+/* Container for the collection of tarot cards; switches between column on
+   narrow screens and a row/wrap layout on wider viewports. */
 .tarot-grid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 2rem; /* vertical spacing between items */
 }
 
+/* Container that provides 3D perspective to child card elements. The
+   `max-width` keeps cards readable on wide layouts while `width: 100%`
+   allows fluid shrinking on small screens. */
 .tarot-container {
   perspective: 1500px;
   max-width: 320px;
   width: 100%;
 }
 
+/* -----------------------------
+   SECTION: Card — core
+   ----------------------------- */
+
+/* Core card element that rotates on the Y axis. `aspect-ratio` keeps the
+   card dimensions consistent and avoids layout shifts. */
 .tarot-card {
   width: 100%;
-  aspect-ratio: 400 / 691;
+  aspect-ratio: 400 / 691; /* tuned for the card artwork */
   position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.8s ease-in-out;
+  transform-style: preserve-3d; /* children are placed in 3D space */
+  transition: transform 0.8s ease-in-out; /* smooth flip */
   cursor: pointer;
 }
 
+/* Hover affordance for pointer devices — lets users see the flip on hover */
 .tarot-container:hover .tarot-card {
   transform: rotateY(180deg);
 }
 
+/* Explicit flipped class for programmatic toggling (keyboard & JS) */
 .tarot-card.is-flipped {
   transform: rotateY(180deg);
 }
 
+/* -----------------------------
+   SECTION: Faces (front / back)
+   ----------------------------- */
+
+/* Shared face layout: absolutely positioned to sit on top of each other;
+   `backface-visibility: hidden` avoids mirrored artifacting during the flip */
 .card-face {
   position: absolute;
   inset: 0;
@@ -38,14 +77,23 @@
   backface-visibility: hidden;
 }
 
+/* Back face (visible initially) */
 .card-back {
   transform: rotateY(0deg);
 }
 
+/* Front face (rotated 180deg so it becomes visible when the card flips) */
 .card-front {
   transform: rotateY(180deg);
 }
 
+/* -----------------------------
+   SECTION: Images & visual polish
+   ----------------------------- */
+
+/* Make sure images fill the face, are clipped nicely, and have a rounded
+   corner to match the design language. `object-fit: cover` keeps focal
+   points intact while covering the face area. */
 .tarot-card img {
   width: 100%;
   height: 100%;
@@ -54,12 +102,69 @@
   display: block;
 }
 
+/* Hint text under the card informing users about the interaction */
 .tarot-hint {
   margin-top: 0.5rem;
   font-size: 0.8rem;
   text-align: center;
   opacity: 0.7;
 }
+
+/* -----------------------------
+   SECTION: Actions & accessibility helpers
+   ----------------------------- */
+
+/* Actions region (Read button + fallback description) — centered and
+   spaced for clear affordance. Keep styles minimal so they inherit well. */
+.tarot-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+
+/* Read button — small, rounded, keyboard-focusable */
+.tarot-read {
+  background: transparent;
+  border: 1px solid rgba(179, 140, 255, 0.25);
+  color: #e5e7eb;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.tarot-read:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* Visible textual fallback shown briefly when TTS is unavailable */
+.tarot-description {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #e5e7eb;
+}
+
+/* Screen-reader-only helper — keeps content available to assistive tech
+   while remaining visually hidden. Use this for `aria-describedby` content. */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -----------------------------
+   SECTION: Responsive adjustments
+   ----------------------------- */
 
 @media (min-width: 768px) {
   .tarot-grid {
@@ -71,3 +176,5 @@
     max-width: 280px;
   }
 }
+
+/* End of TarotCard styles */

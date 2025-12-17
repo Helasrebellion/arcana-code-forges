@@ -1,3 +1,31 @@
+/* ==========================================================
+   ContactForm.css — organized & heavily documented
+   ==========================================================
+   Purpose:
+     - Styles for the contact modal and form controls. The modal uses
+       Ionic components which provide base accessibility; these styles
+       layer visual polish and consistent spacing.
+
+   Accessibility & UX notes:
+     - Visible status messages (success/error) are rendered by the
+       component. For better screen-reader support consider an `aria-live`
+       region to announce submit results.
+     - Interactive elements are styled to be keyboard-friendly. Ion's
+       components handle a lot of the focus management; we complement
+       that with clear hover/focus states where needed.
+
+   File organization:
+     - Modal shell & toolbar
+     - Body & note text
+     - Form item controls
+     - Actions & buttons
+     - Utility styles
+   ==========================================================
+*/
+
+/* -----------------------------
+   Section: Modal shell & toolbar
+   ----------------------------- */
 .contact-modal {
   --height: auto;
 }
@@ -8,6 +36,9 @@
   border-bottom: 2px solid #432a73;
 }
 
+/* -----------------------------
+   Section: Modal body & notes
+   ----------------------------- */
 .contact-body {
   padding: 1rem 1rem 1.25rem;
   background: radial-gradient(
@@ -19,12 +50,19 @@
   color: #ffffff;
 }
 
+/* Small helper text placed above the form fields */
 .contact-note {
   margin: 0 0 1rem;
   opacity: 0.9;
   line-height: 1.5;
 }
 
+/* -----------------------------
+   Section: Form items
+   ----------------------------- */
+/* Form items use a subtle background and rounded corners for a clean
+   touch-target and comfortable spacing. The component uses Ionic's
+   inputs which inherit these container properties. */
 .contact-item {
   --background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(179, 140, 255, 0.18);
@@ -32,6 +70,9 @@
   margin-bottom: 0.75rem;
 }
 
+/* -----------------------------
+   Section: Actions (Cancel / Send)
+   ----------------------------- */
 .contact-actions {
   margin-top: 1rem;
   display: flex;
@@ -40,14 +81,67 @@
   gap: 0.75rem;
 }
 
+/* Mailto fallback link (unstyled anchor) */
 .contact-mailto {
   text-decoration: none;
 }
 
+/* CTA styling uses CSS variables so the IonButton can inherit the
+   design tokens consistently and stay visually aligned with the hero CTA. */
 .contact-send {
   --background: #6366f1;
   --background-activated: #4f46e5;
   --border-radius: 999px;
   --padding-start: 1.5rem;
   --padding-end: 1.5rem;
+}
+
+/* -----------------------------
+   Section: Optional enhancements & notes
+   ----------------------------- */
+/* Suggestion: Add an aria-live region for assistive technologies like so:
+
+   <div aria-live="polite" class="contact-announce" style="position:absolute;left:-9999px;">
+     {submitSuccess ? 'Message sent' : submitError ? 'Error sending message' : ''}
+   </div>
+
+   Or show the live region visually if preferred. Also consider client-side
+   email validation feedback and clearer inline error states for each field.
+*/
+
+/* Field-level error styles */
+.contact-field-error {
+  color: #fecaca; /* soft red */
+  background: rgba(255, 0, 0, 0.03);
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  margin-top: -0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+/* Visual treatment for invalid form items */
+.contact-item.is-invalid {
+  border-color: #fda4af;
+  box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.06);
+}
+
+/* Success / error messages */
+.contact-success {
+  color: #bbf7d0; /* pale green */
+  margin-top: 0.75rem;
+}
+
+.contact-error {
+  color: #fecaca; /* pale red */
+  margin-top: 0.75rem;
+}
+
+/* Hidden live region helper (visually hidden but available to screen readers) */
+.contact-announce {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }

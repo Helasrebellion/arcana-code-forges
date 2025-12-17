@@ -1,3 +1,28 @@
+/* ==========================================================
+   Spellbook.css — organized & documented
+   ==========================================================
+   Purpose:
+     - Styles for the Spellbook (portfolio) section showing project cards
+       with video previews and links to source repositories.
+
+   Organization:
+     - Layout / Section
+     - Header
+     - Grid & Items
+     - Video wrapper
+     - Controls / Buttons
+     - Responsive
+
+   Notes:
+     - Videos use posters to avoid autoplay issues and are constrained to the
+       container so they do not visually break the layout. Use `preload="metadata"`
+       if you want duration info without downloading the whole video.
+   ==========================================================
+*/
+
+/* -----------------------------
+   SECTION: Layout / Section
+   ----------------------------- */
 .spellbook-section {
   margin-top: 0;
   padding: 3rem 1.5rem 4rem;
@@ -11,6 +36,9 @@
   border-top: 1px solid rgba(148, 163, 184, 0.3);
 }
 
+/* -----------------------------
+   SECTION: Header
+   ----------------------------- */
 .spellbook-header {
   max-width: 900px;
   margin: 0 auto 2.5rem;
@@ -29,6 +57,9 @@
   opacity: 0.9;
 }
 
+/* -----------------------------
+   SECTION: Grid & Items
+   ----------------------------- */
 .spellbook-grid {
   display: flex;
   flex-direction: column;
@@ -56,6 +87,9 @@
   text-align: center;
 }
 
+/* -----------------------------
+   SECTION: Video wrapper
+   ----------------------------- */
 .spellbook-video-wrapper {
   border-radius: 14px;
   overflow: hidden;
@@ -69,6 +103,9 @@
   height: auto;
 }
 
+/* -----------------------------
+   SECTION: Controls / Buttons
+   ----------------------------- */
 .spellbook-github-btn-wrapper {
   display: flex;
   justify-content: flex-end;
@@ -87,6 +124,9 @@
   font-size: 0.95rem;
 }
 
+/* -----------------------------
+   SECTION: Responsive
+   ----------------------------- */
 @media (min-width: 900px) {
   .spellbook-grid {
     flex-direction: row;
@@ -96,3 +136,5 @@
     flex: 1;
   }
 }
+
+/* End of Spellbook styles */
