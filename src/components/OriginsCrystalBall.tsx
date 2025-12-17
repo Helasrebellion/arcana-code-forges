@@ -73,7 +73,7 @@ const OriginsCrystalBall: React.FC<Props> = ({ sectionId = "origins" }) => {
         org: "Code:You",
         title: "Trial by Fire",
         timeframe: "Web Development Course",
-        status: "Graduated — Mentoring entry-level students coming soon",
+        status: "Graduated — Web Dev I Web Dev II",
         description:
           "A fast-paced proving ground shipping real web projects, building confidence with modern tooling, and leveling up through iteration.",
         logoSrc: "/images/code_you_logo.jpg",
