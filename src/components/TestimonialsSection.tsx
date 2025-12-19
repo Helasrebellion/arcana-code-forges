@@ -240,7 +240,7 @@ export default function TestimonialsSection() {
           type="button"
           title="Open LinkedIn"
           onClick={() =>
-            window.open("https://www.linkedin.com/in/sylviahela/details/recommendations/", "_blank", "noopener,noreferrer")
+            window.open("https://www.linkedin.com/in/sylviahela/", "_blank", "noopener,noreferrer")
           }
           aria-label="See more on LinkedIn"
         >
