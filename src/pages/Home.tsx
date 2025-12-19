@@ -30,6 +30,8 @@ import Spellbook from "../components/Spellbook";
 import Hero from "../components/Hero";
 import { tarotCards } from "../components/tarotData";
 import "./Home.css";
+import TestimonialsSection from "../components/TestimonialsSection";
+
 
 /* -----------------------------
    Page component
@@ -127,6 +129,10 @@ const Home: React.FC = () => {
             interactions; it accepts a `sectionId` prop to anchor the
             section for in-page navigation. */}
         <OriginsCrystalBall sectionId="origins" />
+        
+        {/* ================= Origins of the Forge (interactive orb) ================= */}
+
+        <TestimonialsSection />
 
         {/* ================= Portfolio Spellbook ================= */}
         <Spellbook />

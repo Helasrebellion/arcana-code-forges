@@ -69,6 +69,9 @@ const Nav: React.FC = () => {
           >
             Origins
           </button>
+          <button className="nav-link" onClick={() => scrollToSection("testimonials")}>
+            Testimonials
+          </button>
           <button
             className="nav-link"
             onClick={() => scrollToSection("portfolio")}
@@ -114,6 +117,12 @@ const Nav: React.FC = () => {
           onClick={() => scrollToSection("origins")}
         >
           Origins
+        </button>
+        <button
+          className="mobile-link"
+          onClick={() => scrollToSection("testimonials")}
+        >
+          Testimonials
         </button>
         <button
           className="mobile-link"

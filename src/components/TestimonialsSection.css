@@ -1,0 +1,424 @@
+/* ===========================================================
+   TestimonialsSection.css
+
+   Purpose:
+   - Styles the 'Seals of Recommendation' testimonials section.
+   - Lays out testimonial cards in a responsive grid and applies
+     a consistent visual language (dark, mystical, polished).
+
+   Notes for maintainers:
+   - Keep the file structure grouped by logical sections (Header, Grid,
+     Card, Rune, Quote, Actions, Footer).
+   - Many effects use CSS transitions for smooth, low-cost animations.
+   - Accessibility considerations (focus-visible outlines, readable
+     contrast) are annotated where relevant.
+   =========================================================== */
+
+/* ===== Arcane Pulse Animation =====
+   This keyframe drives the subtle pulsing shadow used on hover to make
+   cards feel alive without heavy JS. It animates box-shadow intensity.
+*/
+@keyframes arcanePulse {
+  0% {
+    /* start state: soft shadow */
+    box-shadow:
+      0 18px 45px rgba(15, 23, 42, 0.8),
+      0 0 0 rgba(216, 180, 255, 0);
+  }
+  50% {
+    /* peak glow in the middle */
+    box-shadow:
+      0 22px 55px rgba(15, 23, 42, 0.9),
+      0 0 28px rgba(216, 180, 255, 0.55);
+  }
+  100% {
+    /* back to start */
+    box-shadow:
+      0 18px 45px rgba(15, 23, 42, 0.8),
+      0 0 0 rgba(216, 180, 255, 0);
+  }
+}
+
+/* ===== Section =====
+   Container for the entire section. The styling provides visual
+   separation from other page content and establishes the color theme.
+*/
+.testimonials-section {
+  padding: 3rem 1.5rem 4rem; /* comfortable vertical spacing */
+  background: radial-gradient(circle at top, #0b041d 0%, #050013 60%, #020009); /* deep, mystic background */
+  color: #fff; /* default text color for readability */
+  border-top: 1px solid rgba(148, 163, 184, 0.3); /* subtle divider */
+}
+
+/* ===== Header =====
+   Centered heading and subtitle with controlled max width so the
+   section reads well on large screens.
+*/
+.testimonials-header {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.testimonials-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.testimonials-subtitle {
+  font-size: 0.95rem;
+  line-height: 1.8; /* generous line-height improves legibility */
+  opacity: 0.9; /* slight fade for a softer tone */
+  margin: 0;
+}
+
+/* ===== Grid =====
+   Responsive grid using 12 columns. Each card spans differently at
+   breakpoints: full width on small, two columns on medium, three on large.
+*/
+.testimonials-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.25rem; /* consistent gap between cards */
+}
+
+/* ===== Card =====
+   The card is the primary visual unit. It uses a subtle gradient,
+   rounded corners, elevated shadow, and hover state with a gentle lift
+   and glow to indicate interactivity.
+*/
+.testimonial-card {
+  grid-column: span 12; /* default: full width */
+  position: relative; /* for absolutely positioned child elements */
+  height: 360px; /* consistent card height for visual rhythm */
+  display: flex;
+  flex-direction: column; /* header, quote, footer stack vertically */
+  background: radial-gradient(
+    circle at top,
+    rgba(148, 163, 255, 0.06),
+    rgba(15, 23, 42, 0.9)
+  );
+  border-radius: 18px;
+  padding: 1.35rem 1.35rem 1.15rem; /* internal spacing */
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 255, 0.18);
+  overflow: hidden; /* contain shimmer and ensure clean edges */
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease; /* smooth hover transitions */
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px) scale(1.01); /* subtle lift */
+  border-color: rgba(216, 180, 255, 0.55); /* highlight border */
+  animation: arcanePulse 2.4s ease-in-out infinite; /* low-cost glow */
+}
+
+/* Breakpoints: 2 columns on medium screens */
+@media (min-width: 720px) {
+  .testimonial-card {
+    grid-column: span 6;
+  }
+}
+
+/* 3 columns on large screens */
+@media (min-width: 1024px) {
+  .testimonial-card {
+    grid-column: span 4;
+  }
+}
+
+/* Slightly smaller card height on very small screens */
+@media (max-width: 480px) {
+  .testimonial-card {
+    height: 330px;
+  }
+}
+
+/* ===== Arcane shimmer (card pseudo-elements) =====
+   Decorative overlays: ::before adds a soft radial shimmer that becomes
+   stronger on hover; ::after adds a subtle conic gradient glow for depth.
+   Both are pointer-events: none to avoid capturing clicks.
+*/
+.testimonial-card::before {
+  content: "";
+  position: absolute;
+  inset: -35% -35% auto -35%;
+  height: 220px;
+  background: radial-gradient(
+    circle at 30% 40%,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0.8;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.testimonial-card:hover::before {
+  opacity: 1; /* stronger shimmer on hover */
+}
+
+.testimonial-card::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(
+    from 180deg,
+    rgba(255, 255, 255, 0),
+    rgba(179, 140, 255, 0.12),
+    rgba(255, 255, 255, 0),
+    rgba(216, 180, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0.35; /* keep it subtle */
+  filter: blur(2px); /* soften edges for depth */
+  pointer-events: none;
+}
+
+/* ===== Rune =====
+   Small decorative rune placed in top-right of each card. The rune uses
+   a gentle text-shadow to glow and a hover transform to feel interactive.
+   Accessibility: aria-hidden on the element in markup (decorative only).
+*/
+.testimonial-rune {
+  position: absolute;
+  top: 12px;
+  right: 14px; /* keep outside content area */
+  font-size: 1.1rem;
+  opacity: 0.8; /* slightly dim by default */
+  text-shadow: 0 0 18px rgba(179, 140, 255, 0.5);
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease,
+    text-shadow 0.4s ease;
+}
+
+.testimonial-card:hover .testimonial-rune {
+  opacity: 1; /* become more visible on hover */
+  transform: rotate(8deg) scale(1.15); /* playful tilt */
+  text-shadow:
+    0 0 12px rgba(216, 180, 255, 0.9),
+    0 0 28px rgba(216, 180, 255, 0.6); /* stronger glow */
+}
+
+/* ===== Meta =====
+   Layout for avatar + name/title. Uses a 2-column grid and consistent
+   spacing so text lines up across cards.
+*/
+.testimonial-meta {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 0.85rem;
+  align-items: center;
+  margin-bottom: 0.85rem;
+  flex: 0 0 auto; /* keep header visible when quote scrolls */
+}
+
+.testimonial-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px; /* circular avatar */
+  display: grid;
+  place-items: center; /* center initials */
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.55) inset,
+    0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.testimonial-name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.testimonial-title {
+  margin: 0.18rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  line-height: 1.35;
+}
+
+.testimonial-fineprint {
+  margin-top: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  opacity: 0.82;
+  font-size: 0.82rem;
+}
+
+.testimonial-dot {
+  opacity: 0.8; /* subtle separators */
+}
+
+/* ===== Quote (Scrollable) =====
+   The quote area is scrollable when content overflows. We limit height
+   to maintain consistent card sizes and add a fade at the bottom using
+   a sticky pseudo element to hint that content can scroll.
+*/
+.testimonial-quote {
+  position: relative;
+  flex: 1 1 auto; /* grow to fill vertical space */
+  min-height: 0; /* enable proper flexbox height calculation */
+  max-height: 170px; /* consistent visual rhythm */
+  overflow-y: auto; /* allow scrolling for long quotes */
+  padding-top: 0.75rem;
+  padding-right: 0.4rem; /* space for scrollbar */
+  margin-top: 0.35rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 480px) {
+  .testimonial-quote {
+    max-height: 150px; /* slightly shorter on small screens */
+  }
+}
+
+/* Decorative large quotation mark behind the text */
+.testimonial-quote-mark {
+  position: absolute;
+  top: 0.2rem;
+  left: -0.2rem;
+  font-size: 2.2rem;
+  opacity: 0.28;
+  line-height: 1;
+  pointer-events: none; /* purely decorative, don't capture clicks */
+}
+
+.testimonial-quote-paragraph {
+  margin: 0.6rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55; /* comfortable reading line-height */
+  opacity: 0.95;
+}
+
+/* Sticky gradient at the bottom acts as a scroll hint */
+.testimonial-quote::after {
+  content: "";
+  position: sticky;
+  bottom: -1px;
+  height: 22px;
+  margin-top: auto;
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 0, 9, 0),
+    rgba(2, 0, 9, 0.95)
+  );
+  pointer-events: none; /* decorative only */
+}
+
+/* ===== Scrollbar =====
+   Custom scrollbar styling for webkit-based browsers. Non-webkit
+   browsers fall back to defaults — acceptable for this decorative area.
+*/
+.testimonial-quote::-webkit-scrollbar {
+  width: 10px;
+}
+
+.testimonial-quote::-webkit-scrollbar-thumb {
+  background: rgba(216, 180, 255, 0.22);
+  border-radius: 999px;
+  border: 2px solid rgba(2, 0, 9, 0.35);
+}
+
+.testimonial-quote::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+}
+
+/* ===== Actions =====
+   Action area (card links, footer button). Buttons are visually
+   heavy and accessible (focus-visible), with a disabled state when
+   a per-card link is unavailable.
+*/
+.testimonial-actions {
+  margin-top: auto; /* keep actions anchored to the bottom */
+  display: flex;
+  justify-content: flex-end; /* right-align actions */
+  flex: 0 0 auto;
+}
+
+.testimonial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem; /* space between label and icon */
+  text-decoration: none;
+  padding: 0.6rem 0.95rem;
+  border-radius: 999px; /* pill button */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+/* Hover state gives a subtle elevation and highlight */
+.testimonial-link:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(216, 180, 255, 0.35);
+}
+
+/* Keyboard accessibility: visible focus outline */
+.testimonial-link:focus-visible {
+  outline: 2px solid rgba(216, 180, 255, 0.65);
+  outline-offset: 2px;
+}
+
+.testimonial-link-spark {
+  display: inline-block; /* enables transform animations */
+  opacity: 0.9;
+  text-shadow: 0 0 12px rgba(216, 180, 255, 0.65);
+  transition: transform 0.18s ease, opacity 0.18s ease; /* gentle micro-interaction */
+}
+
+/* Nudge the icon to the right on hover for a directional cue */
+.testimonial-link:hover .testimonial-link-spark {
+  transform: translateX(4px);
+}
+
+/* Disabled visual state for unavailable per-card links */
+.testimonial-link.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ===== Footer =====
+   Footer area contains the global 'See More on LinkedIn' control and
+   small, low-contrast helper text. Kept visually lighter to avoid
+   competing with the cards.
+*/
+.testimonials-footer {
+  max-width: 1100px;
+  margin: 1.25rem auto 0;
+  opacity: 0.85; /* slightly muted */
+}
+
+.testimonials-footer-note {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Inline code elements used in the helper note get a subtle background */
+.testimonials-footer-note code {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0.1rem 0.35rem;
+  border-radius: 8px;
+}
+
