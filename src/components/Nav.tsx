@@ -48,9 +48,9 @@ const Nav: React.FC = () => {
         </button>
 
         <div className="nav-links desktop-only">
-          <button className="nav-link" onClick={() => scrollToSection("home")}>
+          {/* <button className="nav-link" onClick={() => scrollToSection("home")}>
             Home
-          </button>
+          </button> */}
           <button
             className="nav-link"
             onClick={() => scrollToSection("services")}
@@ -97,9 +97,9 @@ const Nav: React.FC = () => {
         id="arcana-mobile-menu"
         className={`mobile-menu ${menuOpen ? "open" : ""}`}
       >
-        <button className="mobile-link" onClick={() => scrollToSection("home")}>
+        {/* <button className="mobile-link" onClick={() => scrollToSection("home")}>
           Home
-        </button>
+        </button> */}
         <button
           className="mobile-link"
           onClick={() => scrollToSection("services")}

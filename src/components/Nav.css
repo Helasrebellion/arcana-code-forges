@@ -154,10 +154,17 @@
 }
 
 .mobile-menu.open {
-  max-height: 240px;
+  max-height: 70vh;
   opacity: 1;
   transform: translateY(0);
 }
+
+@media (max-width: 900px) {
+  .mobile-menu.open {
+    max-height: calc(100vh - 110px);
+  }
+}
+
 
 /* -----------------------------
    Section: Mobile link styles
