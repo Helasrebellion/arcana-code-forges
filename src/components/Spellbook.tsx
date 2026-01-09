@@ -180,6 +180,42 @@ const Spellbook: React.FC = () => {
             </a>
           </div>
         </div>
+
+        {/* ===== PROJECT 3 ===== */}
+        <div className="spellbook-item">
+          <h3 className="spellbook-project-title">Inventory Management System</h3>
+
+          {/* This project demonstrates an interactive visualization; for such
+              content consider providing a short textual summary that captures
+              the interaction model (e.g., "Hover nodes to see country info"). */}
+          <div className="spellbook-video-wrapper">
+            <video
+              className="spellbook-video"
+              controls
+              playsInline
+              muted
+              preload="metadata"
+              poster="./thumbnails/inventoryappthumbnail.png"
+            >
+              <source src="./videos/project-four.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div className="spellbook-github-btn-wrapper">
+            <a
+              href="https://github.com/Helasrebellion/InventoryApp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IonButton className="spellbook-github-btn" shape="round">
+                View Source on GitHub
+              </IonButton>
+            </a>
+          </div>
+        </div>
+
+
       </div>
     </section>
   );
